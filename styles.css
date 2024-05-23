@@ -1,1 +1,14 @@
-#map { height: 800px; }
+#map { 
+    height: 80vh;  
+    width: 80vw;
+    margin: 10%;
+}
+
+.navlinks {
+    list-style: none;
+}
+
+.navlinks li {
+    display: inline-block;
+    padding: 0px 20px;
+} 
