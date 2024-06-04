@@ -26,25 +26,6 @@
          <a href="add_job.html" class="cta"><button>New Job</button></a>
     </header>
     <div id="map"></div>
+    <h1>jobs</h1>
 </body>
-
-<script>
-
-    var map = L.map('map');
-    map.setView([-44.9612115,168.5256356], 10);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-})
-.addTo(map);
-
-var marker_example_one = L.marker([-44.94802,168.81413]).addTo(map);
-var marker_example_two = L.marker([-45.01626,168.73310]).addTo(map);
-var marker_example_three = L.marker([-44.95737,168.84641]).addTo(map);
-        
-
-
-</script>
-
 </html>

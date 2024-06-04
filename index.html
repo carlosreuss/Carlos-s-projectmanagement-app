@@ -14,31 +14,18 @@
      crossorigin=""></script>
 </head>
 <body>
-    <header>
+    <header id="navbar">
         <a href="index.html"><img class="logo" src="LOGO of MINI MANAGEMENT dit.png" alt="logo"></a>
          <nav>
             <ul class="navlinks">
-                <li><a href="index.html">Dash Borad</a></li>
-                <li><a href="">Jobs</a></li>
+                <li><a href="index.html">DashBorad</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
                 <li><a href="map.html">Map</a></li>
-                <li><a href="">ABOUT US</a></li>
             </ul>
          </nav>
-         <a href="#bottom" class="cta"><button>Contact</button></a>
+         <a href="add_job.html" class="cta"><button>New Job</button></a>
     </header>
     <div id="map"></div>
+    <h1>DashBorad</h1>
 </body>
-
-<script>
-
-    var map = L.map('map');
-    map.setView([51.505, -0.09], 13);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-</script>
-
 </html>

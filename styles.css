@@ -4,13 +4,14 @@
     padding: 0;
 }
 
+
 header {
     background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 10%;
-    position: fixed;
+    position: top;
     width: 100%;
     z-index: 110;
 }
@@ -53,6 +54,6 @@ button {
 #map { 
     height: 80vh;  
     width: 80vw;
-    margin: 10% auto;
+    margin: 5% auto;
     display: block;
 }
