@@ -53,7 +53,8 @@ button {
 
 #map { 
     height: 80vh;  
-    width: 80vw;
-    margin: 5% auto;
+    width: 90vw;
     display: block;
+    margin:auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
