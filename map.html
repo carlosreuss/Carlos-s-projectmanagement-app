@@ -5,46 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
     <header id="navbar">
-        <a href="index.html"><img class="logo" src="LOGO of MINI MANAGEMENT dit.png" alt="logo"></a>
-         <nav>
+        <a href="index.html"><img class="logo" src="LOGO of MINI MANAGEMENT dit.png" alt="Logo of MINI MANAGEMENT"></a>
+        <nav>
             <ul class="navlinks">
                 <li><a href="index.html">DashBoard</a></li>
                 <li><a href="jobs.html">Jobs</a></li>
                 <li><a href="map.html">Map</a></li>
             </ul>
-         </nav>
-         <a href="add_job.html" class="cta"><button>New Job</button></a>
+        </nav>
+        <a href="add_job.html" class="cta"><button>New Job</button></a>
     </header>
-    <div id="map"></div>
+    <main>
+        <div id="map"></div>
+    </main>
+    
+    <script>
+        var map = L.map('map').setView([-44.9612115, 168.5256356], 10);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        function getCoordinates(address, callback) {
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        callback(data[0].lat, data[0].lon);
+                    } else {
+                        console.error('No coordinates found for address:', address);
+                    }
+                })
+                .catch(error => console.error('Error fetching coordinates:', error));
+        }
+
+        var addresses = [
+            "20 bracken street, arrowtown 9302",
+            "164 mcdonnell road, Arrowtown",
+            "Joe Oconnell Drive, Frankton, Queenstown 9300"
+        ];
+
+        addresses.forEach(address => {
+            getCoordinates(address, (lat, lon) => {
+                L.marker([lat, lon]).addTo(map)
+                  .bindPopup(`<b>${address}</b>`)
+                  .openPopup();
+            });
+        });
+    </script>
 </body>
-
-<script>
-
-    var map = L.map('map');
-    map.setView([-44.9612115,168.5256356], 10);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-})
-.addTo(map);
-
-var marker_example_one = L.marker([-44.94802,168.81413]).addTo(map);
-var marker_example_two = L.marker([-45.01626,168.73310]).addTo(map);
-var marker_example_three = L.marker([-44.95737,168.84641]).addTo(map);
-        
-
-
-</script>
-
 </html>
