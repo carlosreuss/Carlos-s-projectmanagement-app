@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    position: top;
+    width: 100%;
+    z-index: 110;
+}
+
+li, nav a, button {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 550;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+
+.logo {
+    cursor: pointer;
+}
+
+.navlinks {
+    list-style: none;
+}
+
+.navlinks li {
+    display: inline-block;
+    padding: 0px 20px;
+} 
+
+button {
+    padding: 9px 25px;
+    background-color: #b23850;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 50px;
+    
+}
+
+#map { 
+    height: 80vh;  
+    width: 90vw;
+    display: block;
+    margin:auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
