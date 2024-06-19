@@ -17,12 +17,12 @@
 </head>
 <body>
     <header id="navbar">
-        <a href="index.html"><img class="logo" src="LOGO of MINI MANAGEMENT dit.png" alt="logo"></a>
+        <a href="{% url 'index' %}"><img class="logo" src="{% static 'cssfolder/LOGO of MINI MANAGEMENT dit.png'%}" alt="logo"></a>
          <nav>
             <ul class="navlinks">
-                <li><a href="index.html" alt="Option 1: dashboard">DashBoard</a></li>
-                <li><a href="jobs.html" alt="Option 2: list of Jobs">Jobs</a></li>
-                <li><a href="map.html" alt="Option 3: Map">Map</a></li>
+                <li><a href="{% url 'index' %}" alt="Option 1: dashboard">DashBoard</a></li>
+                <li><a href="{% url 'jobs' %}" alt="Option 2: list of Jobs">Jobs</a></li>
+                <li><a href="{% url 'map' %}" alt="Option 3: Map">Map</a></li>
             </ul>
          </nav>
          <a href="add_job.html" class="cta" alt="Add Job"><button>New Job</button></a>
