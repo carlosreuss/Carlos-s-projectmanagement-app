@@ -25,7 +25,7 @@
                 <li><a href="{% url 'map' %}" alt="Option 3: Map">Map</a></li>
             </ul>
          </nav>
-         <a href="add_job.html" class="cta" alt="Add Job"><button>New Job</button></a>
+         <a href="{% url 'new_job' %}" class="cta" alt="new_job Job"><button>New Job</button></a>
     </header>
     <div class="main"></div>
     {% block body %}
