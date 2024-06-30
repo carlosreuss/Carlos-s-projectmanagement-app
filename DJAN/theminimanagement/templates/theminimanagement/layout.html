@@ -14,10 +14,11 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+     
 </head>
 <body>
     <header id="navbar">
-        <a href="{% url 'index' %}"><img class="logo" src="{% static 'cssfolder/LOGO of MINI MANAGEMENT dit.png'%}" alt="logo"></a>
+        <a href="{% url 'index' %}"><img class="logo" src="{% static 'cssfolder/LOGO of MINI MANAGEMENT dit.png'%}" alt="logo of mininmanagement"></a>
          <nav>
             <ul class="navlinks">
                 <li><a href="{% url 'index' %}" alt="Option 1: dashboard">DashBoard</a></li>
@@ -25,7 +26,7 @@
                 <li><a href="{% url 'map' %}" alt="Option 3: Map">Map</a></li>
             </ul>
          </nav>
-         <a href="{% url 'new_job' %}" class="cta" alt="new_job Job"><button>New Job</button></a>
+         <a href="{% url 'new_job' %}" class="cta" alt="option 4 : add new job"><button>New Job</button></a>
     </header>
     <div class="main"></div>
     {% block body %}
