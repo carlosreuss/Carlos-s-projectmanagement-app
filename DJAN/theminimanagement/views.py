@@ -1,6 +1,4 @@
 from django.shortcuts import render , redirect
-from models import job
-import json
 
 # Create your views here.
 
@@ -19,8 +17,6 @@ def new_job(request):
 def edit(request):
     return render(request, 'theminimanagement/edit.html')
 
-def import_job_data(request):
-    pass
 
 
 

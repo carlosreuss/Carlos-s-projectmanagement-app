@@ -1,5 +1,3 @@
-
-
 var map = L.map('map').setView([-44.9612115, 168.5256356], 10);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -20,12 +18,20 @@ function getCoordinates(address, callback) {
         .catch(error => console.error('Error fetching coordinates:', error));
 }
 
-
-import data from './jobs_data.json';
-console.log(data.jobs_data);
-
-
-
+var locations = [
+    {
+        address: "164 McDonnell Road, Arrowtown 9351",
+        infoPage: "job1.html"
+    },
+    {
+        address: "166 Centennial Avenue, Arrowtown 9371",
+        infoPage: "job2.html"
+    },
+    {
+        address: "Joe Oconnell Drive, Frankton, Queenstown 9371",
+        infoPage: "job3.html"
+    }
+];
 
 locations.forEach(location => {
     getCoordinates(location.address, (lat, lon) => {
