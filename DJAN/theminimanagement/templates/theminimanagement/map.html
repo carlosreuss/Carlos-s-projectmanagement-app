@@ -9,6 +9,49 @@
 <main>
     <div id="map"></div>
 </main>
-<script type="module" src="{% static 'js/the_maps_js.js'%}"></script>
+<script>
+
+var map = L.map('map').setView([-44.9612115, 168.5256356], 10);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+function getCoordinates(address, callback) {
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                callback(data[0].lat, data[0].lon);
+            } else {
+                console.error('No coordinates found for address:', address);
+            }
+        })
+        .catch(error => console.error('Error fetching coordinates:', error));
+}
+
+// Fetch the JSON file containing the locations
+fetch("{% static 'js/job_data.json' %}")
+    .then(response => response.json())
+    .then(data => {
+        const locations = data.jobs.map(job => ({
+            address: job.address,
+            infoPage: `${job.name.toLowerCase().replace(/\s+/g, '')}.html`
+        }));
+
+        locations.forEach(location => {
+            getCoordinates(location.address, (lat, lon) => {
+                L.marker([lat, lon]).addTo(map)
+                  .bindPopup(`<b>${location.address}</b><br><a href="${location.infoPage}" target="_blank">More info</a>`)
+                  .openPopup();
+            });
+        });
+    })
+    .catch(error => console.error('Error fetching JSON file:', error));
+
+
+    
+    </script>
 </body>
 {% endblock %}  

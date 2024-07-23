@@ -20,22 +20,23 @@ function getCoordinates(address, callback) {
 
 var locations = [
     {
-        address: "164 McDonnell Road, Arrowtown 9351"
+        address: "164 McDonnell Road, Arrowtown 9351",
+        infoPage: "job1.html"
     },
     {
-        address: "166 Centennial Avenue, Arrowtown 9371"
+        address: "166 Centennial Avenue, Arrowtown 9371",
+        infoPage: "job2.html"
     },
     {
         address: "Joe Oconnell Drive, Frankton, Queenstown 9371",
+        infoPage: "job3.html"
     }
 ];
 
-function addMarker(location) {
+locations.forEach(location => {
     getCoordinates(location.address, (lat, lon) => {
         L.marker([lat, lon]).addTo(map)
           .bindPopup(`<b>${location.address}</b><br><a href="${location.infoPage}" target="_blank">More info</a>`)
           .openPopup();
-    });
-}
-
-
+        });
+});
