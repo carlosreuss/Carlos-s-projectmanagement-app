@@ -1,55 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
 * {
+    font-family: "Poppins", sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    height: 100vh;
+    background: var(--body-colour);
+    transition: var(--tran-04);
+}
 
-header {
-    background-color: white;
+body.dark{
+    --body-colour: #18191A;
+    --sidebar-colour: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color:#fff;
+    --text-color:#ccc;
+}
+
+.sidebar .text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+}
+
+
+
+.sidebar .image {
+    min-width: 60px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 25px 10%;
-    position: top;
-    width: 100%;
-    z-index: 110;
 }
 
-li, nav a, button {
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 550;
-    font-size: 20px;
-    color: black;
-    text-decoration: none;
+/* this css is for the side bar */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    background: var(--sidebar-colour);
+    transition: var(--tran-05);
+    z-index: 100;
 }
 
-
-.logo {
-    cursor: pointer;
+.sidebar.close{
+    width: 88px
 }
 
-.navlinks {
+.sidebar.close .text{
+    opacity: 0;
+}
+
+.sidebar li {
+    height: 50px;
+    margin-top: 10px;
     list-style: none;
+    display: flex;
+    align-items: center;
 }
 
-.navlinks li {
-    display: inline-block;
-    padding: 0px 20px;
-} 
-
-button {
-    padding: 9px 25px;
-    background-color: #2a9dca;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
+.sidebar li .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px; 
 }
 
-.logo {
-    width: 50px;
-    
+.sidebar li .icon,
+.sidebar li .text {
+    font-size: 20px;
+    color: var(--text-color);
+    transition: var(--tran-02);  
 }
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+
+.sidebar header {
+    position: relative;
+}
+
+.sidebar .imagetext img{
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .imagetext{
+    display: flex;
+    align-items: center;
+}
+
+header .imagetext .header-text{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.header-text .name{
+    font-weight: 600;
+}
+
+.header-text .does{
+    margin-top: -2px;
+    font-size: 10px;
+}
+
+.sidebar header .toggle {
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--sidebar-colour);
+    font-size: 22px;
+    transition: var(--tran-03);
+
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
+}
+
+.sidebar li a:hover {
+    background-color: var(--primary-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-colour);
+}
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-bar .mode {
+    position: relative;
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+.menu-bar .mode .moon-sun{
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.menu-bar .mode i {
+    position: absolute;
+    transition: var(--tran-03);
+}
+
+.menu-bar .mode i.sun{
+    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
+}
+
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 60px;
+    cursor: pointer; 
+    border-radius: 6px;
+    background: var(--primary-color-light);
+}
+
+.toggle-switch .switch{
+    position: relative;
+    border-radius: 25px;
+    height: 22px;
+    width: 44px;
+    background: var(--toggle-color);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background: var(--sidebar-colour);
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before{
+    left: 25px;
+}
+
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.home{
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100%-250px);
+    background-color: var(--body-colour);
+    transition: var(--tran-05);
+}
+
+.sidebar.close ~ .home{
+    left: 88px;
+    height: 100vh;
+}
+
+:root{
+    /* ----- colours -------*/
+    --body-colour: #E4E9F7;
+    --sidebar-colour: #fff;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color:#DDD;
+    --text-color:#707070;
+
+    /*== Transition ==*/
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.4s ease;
+}
+
 
 #map { 
     height: 80vh;  
@@ -58,3 +284,4 @@ button {
     margin:auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+

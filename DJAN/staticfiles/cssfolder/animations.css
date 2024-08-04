@@ -1,0 +1,34 @@
+/* theminimanagement/static/theminimanagement/cssfolder/animations.css */
+
+/* Animation 1 */
+.animation1 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation: move 2s infinite;
+}
+
+/* Animation 2 */
+.animation2 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation: move 2s infinite;
+}
+
+/* Animation 3 */
+.animation3 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    animation: move 2s infinite;
+}
+
+@keyframes move {
+    0% { left: 0; }
+    50% { left: 200px; }
+    100% { left: 0; }
+}

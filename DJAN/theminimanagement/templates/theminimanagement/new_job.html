@@ -22,27 +22,27 @@
 </form>
 
 <script>
-    let jobs = [];
+     let jobs = [];
 
-    // Function to display the list of jobs
-    function displayJobs() {
-        const jobListDiv = document.getElementById('job-list');
-        jobListDiv.innerHTML = '';
-        jobs.forEach(job => {
-            const jobItem = document.createElement('div');
-            jobItem.textContent = `Job Name: ${job.name}, Address: ${job.address}`;
-            jobListDiv.appendChild(jobItem);
-        });
+// Function to display the list of jobs
+function displayJobs() {
+    const jobListDiv = document.getElementById('job-list');
+    jobListDiv.innerHTML = '';
+    jobs.forEach(job => {
+        const jobItem = document.createElement('div');
+        jobItem.textContent = `Job Name: ${job.name}, Address: ${job.address}`;
+        jobListDiv.appendChild(jobItem);
+    });
+}
+
+// Function to save jobs to localStorage
+function saveJobsToLocalStorage() {
+        localStorage.setItem('jobs', JSON.stringify(jobs));
     }
 
-    // Function to save jobs to localStorage
-    function saveJobsToLocalStorage() {
-            localStorage.setItem('jobs', JSON.stringify(jobs));
-        }
-
-
-    // Fetch the initial JSON data
-    fetch("{% static 'js/job_data.json' %}")
+    
+     // Fetch the initial JSON data
+     fetch("{% static 'js/job_data.json' %}")
         .then(response => response.json())
         .then(data => {
             jobs = data.jobs;

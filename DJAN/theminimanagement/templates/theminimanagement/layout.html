@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'cssfolder/styles.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -15,21 +16,72 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
      
+     
 </head>
 <body>
-    <header id="navbar">
-        <a href="{% url 'index' %}"><img class="logo" src="{% static 'cssfolder/LOGO of MINI MANAGEMENT dit.png'%}" alt="logo of mininmanagement"></a>
-         <nav>
-            <ul class="navlinks">
-                <li><a href="{% url 'index' %}" alt="Option 1: dashboard">DashBoard</a></li>
-                <li><a href="{% url 'jobs' %}" alt="Option 2: list of Jobs">Jobs</a></li>
-                <li><a href="{% url 'map' %}" alt="Option 3: Map">Map</a></li>
-            </ul>
-         </nav>
-         <a href="{% url 'new_job' %}" class="cta" alt="option 4 : add new job"><button>New Job</button></a>
-    </header>
-    <div class="main"></div>
+    <nav class="sidebar close">
+        <header>
+            <div class="imagetext">
+                <span class="image">  
+                    <img src="{% static 'cssfolder/LOGO of MINI MANAGEMENT dit.png'%}" alt="logo of mininmanagement">
+                </span>
+                <div class="text header-text">
+                    <span class="name">Mini Management</span>
+                    <span class="does">Project Managment</span>
+                </div>
+
+                <i class='bx bx-chevron-right toggle'></i>
+        </header>
+                <div class="menu-bar">
+                    <div class="menu">
+                        <ul class="menu-link">
+                            <li class="nav-link">
+                                <a href="{% url 'index' %}">
+                                    <i class='bx bxs-dashboard icon' ></i>
+                                    <span class="text nav-text">DashBoard</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="{% url 'jobs' %}">
+                                    <i class='bx bx-list-ul icon' ></i>
+                                    <span class="text nav-text">Jobs List</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="{% url 'map' %}">
+                                    <i class='bx bx-map-alt icon' ></i>
+                                    <span class="text nav-text">Maps</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom-content">
+                        <li class="">
+                            <a href="#">
+                                <i class='bx bx-log-out icon'></i>
+                                <span class="text nav-text">Logout</span>
+                            </a>
+                        </li>
+                        <li class="mode">
+                            <div class="moon-sun">
+                                <i class='bx bx-moon icon moon'></i>
+                                <i class='bx bx-sun icon sun'></i>
+                            </div>
+                            <span class="mode-text text">Dark Mode</span>
+
+                            <div class="toggle-switch">
+                                <span class="switch"></span>
+                            </div>
+
+                        </li>
+                    </div>
+                </div>
+            </div>
+    </nav>
+    <script src="{% static 'js/menus.js' %}"></script>
+    <section class="home">
     {% block body %}
     {% endblock %}
+    </section>
 </body>
 </html>
