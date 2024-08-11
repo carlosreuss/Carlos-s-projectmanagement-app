@@ -32,8 +32,6 @@ body.dark{
     opacity: 1;
 }
 
-
-
 .sidebar .image {
     min-width: 60px;
     display: flex;
@@ -52,6 +50,9 @@ body.dark{
     background: var(--sidebar-colour);
     transition: var(--tran-05);
     z-index: 100;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .sidebar.close{
@@ -175,7 +176,7 @@ body.dark .sidebar li a:hover .text{
 }
 .menu-bar .mode .moon-sun{
     height: 50px;
-    width: 60px;
+    width: 50px;
     display: flex;
     align-items: center;
 
@@ -214,6 +215,7 @@ body.dark .menu-bar .mode i.moon{
     border-radius: 6px;
     background: var(--primary-color-light);
 }
+
 
 .toggle-switch .switch{
     position: relative;
@@ -256,17 +258,19 @@ body.dark .switch::before{
 }
 
 .sidebar.close ~ .home{
+    position: relative;
     left: 88px;
     height: 100vh;
+    width: calc(100%-88px);
 }
 
 :root{
     /* ----- colours -------*/
     --body-colour: #E4E9F7;
     --sidebar-colour: #fff;
-    --primary-color: #695CFE;
+    --primary-color: #0496FF;
     --primary-color-light: #F6F5FF;
-    --toggle-color:#DDD;
+    --toggle-color:#0496FF;
     --text-color:#707070;
 
     /*== Transition ==*/
@@ -277,6 +281,55 @@ body.dark .switch::before{
 }
 
 
+/* this css is for the index.html or dashboard */
+
+.sidebar.close ~ .home .graph-one {
+    margin-top: 20px;
+    display: flex;
+    position: relative;
+    column-gap: 25px;
+    width: calc(100% - 128px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+}
+
+.home .graph-one {
+    margin-top: 20px;
+    display: flex;
+    position: relative;
+    column-gap: 25px;
+    width: calc(100% - 290px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+}
+
+.home .graph-one .dough-container {
+    margin-left: 20px;
+    position: relative;
+    padding: 10px;
+    width: 250px;
+    
+}
+
+.home .graph-one .verticalLine {
+    border-left: thick solid var(--primary-color);
+    opacity: .5;
+    border-radius: 6px;
+  }
+
+.home .graph-one .infomation {
+    padding: 10px;
+    position: relative;
+    width: 250px;
+}
+
+/* this css is for the map.html */
 #map { 
     height: 80vh;  
     width: 90vw;

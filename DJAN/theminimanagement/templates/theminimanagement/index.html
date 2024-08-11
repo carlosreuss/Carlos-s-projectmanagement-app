@@ -5,5 +5,64 @@
 {% endblock %}
 
 {% block body %}
-    ertyuio
+    
+    <div class="graph-one">
+        <div class="dough-container">
+            <canvas id="chart-one"></canvas>
+        </div>
+        <div class="verticalLine"></div>
+        <div class="infomation">
+            <ul>
+                <li>Done: <span class="percentage">25%</span></li>
+                <li>Done: <span class="percentage">25%</span></li>
+                <li>Done: <span class="percentage">25%</span></li>
+                <li>Done: <span class="percentage">25%</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="graph-two">
+        <div class="container-two">
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+const ctx = document.getElementById('chart-one');
+
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['BackLog', 'Ready', 'In Progress', 'In Review', 'Done'],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [300, 50, 100, 60, 40],
+      backgroundColor: [
+        'rgb(4,150,255)',
+        'rgb(242,92,84)',
+        'rgb(253,150,169)',
+        'rgb(247,206,91)',
+        'rgb(76,149,108)',
+      ],
+      hoverOffset: 4
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {
+        position: 'right',
+        align: 'center',  
+        labels: {
+          boxWidth: 20,
+          padding: 20      
+        }
+      }
+    },
+    responsive: true,
+    maintainAspectRatio: false
+  }
+});
+
+    </script>
 {% endblock %}  
