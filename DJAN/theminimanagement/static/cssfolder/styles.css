@@ -284,6 +284,7 @@ body.dark .switch::before{
 /* this css is for the index.html or dashboard */
 
 .sidebar.close ~ .home .graph-one {
+    height: 30vh;
     margin-top: 20px;
     display: flex;
     position: relative;
@@ -297,6 +298,7 @@ body.dark .switch::before{
 }
 
 .home .graph-one {
+    height: 30vh;
     margin-top: 20px;
     display: flex;
     position: relative;
@@ -313,8 +315,7 @@ body.dark .switch::before{
     margin-left: 20px;
     position: relative;
     padding: 10px;
-    width: 250px;
-    
+    width: 400px;
 }
 
 .home .graph-one .verticalLine {
@@ -327,6 +328,38 @@ body.dark .switch::before{
     padding: 10px;
     position: relative;
     width: 250px;
+}
+
+.sidebar.close ~ .home .graph-two {
+    height: 60vh;
+    margin-top: 20px;
+    display: flex;
+    position: relative;
+    column-gap: 25px;
+    width: calc(100% - 128px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+}
+
+.home .graph-two {
+    height: 60vh;
+    margin-top: 20px;
+    display: flex;
+    position: relative;
+    column-gap: 25px;
+    width: calc(100% - 290px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+}
+
+.container-two canvas {
+    width: 90vw;
 }
 
 /* this css is for the map.html */
