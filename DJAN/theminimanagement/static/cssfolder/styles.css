@@ -252,7 +252,7 @@ body.dark .switch::before{
     position: relative;
     left: 250px;
     height: 100vh;
-    width: calc(100%-250px);
+    width: calc(100% - 250px);
     background-color: var(--body-colour);
     transition: var(--tran-05);
 }
@@ -261,7 +261,7 @@ body.dark .switch::before{
     position: relative;
     left: 88px;
     height: 100vh;
-    width: calc(100%-88px);
+    width: calc(100% - 88px);
 }
 
 :root{
@@ -284,12 +284,9 @@ body.dark .switch::before{
 /* this css is for the index.html or dashboard */
 
 .sidebar.close ~ .home .graph-one {
-    height: 30vh;
-    margin-top: 20px;
-    display: flex;
-    position: relative;
-    column-gap: 25px;
-    width: calc(100% - 128px);
+    height: 40vh;
+    margin-top: 10px;
+    width: calc(100% - 35px);
     background: var(--sidebar-colour);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 24px;
@@ -298,12 +295,9 @@ body.dark .switch::before{
 }
 
 .home .graph-one {
-    height: 30vh;
-    margin-top: 20px;
-    display: flex;
-    position: relative;
-    column-gap: 25px;
-    width: calc(100% - 290px);
+    height: 40vh;
+    margin-top: 10px;
+    width: calc(100% - 35px);
     background: var(--sidebar-colour);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 24px;
@@ -311,17 +305,37 @@ body.dark .switch::before{
     transition: var(--tran-05);
 }
 
+.home .chart-header {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+    text-align: center;
+}
+
+.home .graph-one .main-content {
+    height: 35vh;
+    transition: var(--tran-05);
+    display: flex;
+    position: relative;
+    column-gap: 25px;
+}
+
 .home .graph-one .dough-container {
     margin-left: 20px;
-    position: relative;
-    padding: 10px;
-    width: 400px;
+    background-position-x: relative;
+    padding-right: 10px;
+    width: 350px;
 }
 
 .home .graph-one .verticalLine {
-    border-left: thick solid var(--primary-color);
-    opacity: .5;
+    border-left: thick solid var(--body-colour);
+    opacity: 1;
     border-radius: 6px;
+    margin-top: -5px;
+    transition: var(--tran-05);
   }
 
 .home .graph-one .infomation {
@@ -330,13 +344,16 @@ body.dark .switch::before{
     width: 250px;
 }
 
+.home .graph-one .infomation .percentage {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
 .sidebar.close ~ .home .graph-two {
-    height: 60vh;
+    height: 55vh;
     margin-top: 20px;
-    display: flex;
-    position: relative;
     column-gap: 25px;
-    width: calc(100% - 128px);
+    width: calc(100% - 35px);
     background: var(--sidebar-colour);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 24px;
@@ -345,12 +362,42 @@ body.dark .switch::before{
 }
 
 .home .graph-two {
-    height: 60vh;
+    height: 55vh;
     margin-top: 20px;
+    column-gap: 25px;
+    width: calc(100% - 35px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+    margin-bottom: 0px;
+}
+
+.home .graph-two .container-two {
     display: flex;
     position: relative;
-    column-gap: 25px;
-    width: calc(100% - 290px);
+    height: 50vh;
+}
+
+.container-two canvas {
+    width: 90vw;
+}
+
+.graph-one .inline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+/* this css is for the jobs.html */
+
+.sidebar.close ~ .home .list-job .job-one {
+    height: 40vh;
+    margin-top: 10px;
+    width: 100%;
     background: var(--sidebar-colour);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 24px;
@@ -358,8 +405,15 @@ body.dark .switch::before{
     transition: var(--tran-05);
 }
 
-.container-two canvas {
-    width: 90vw;
+.home .list-job .job-one  {
+    height: 40vh;
+    margin-top: 10px;
+    width: 95%;
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
 }
 
 /* this css is for the map.html */
@@ -369,5 +423,6 @@ body.dark .switch::before{
     display: block;
     margin:auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 24px;
 }
 

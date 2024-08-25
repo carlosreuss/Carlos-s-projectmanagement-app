@@ -5,23 +5,25 @@
 {% endblock %}
 
 {% block body %}
-    
     <div class="graph-one">
-        <div class="dough-container">
-            <canvas id="chart-one"></canvas>  
-        </div>
-        <div class="verticalLine"></div>
-        <div class="infomation">
-            <ul>
-                <li>Done: <span class="percentage">25%</span></li>
-                <li>Done: <span class="percentage">25%</span></li>
-                <li>Done: <span class="percentage">25%</span></li>
-                <li>Done: <span class="percentage">25%</span></li>
-            </ul>
+        <div class="chart-header">Overall Progress</div>
+        <div class="main-content">
+            <div class="dough-container">
+                <canvas id="chart-one"></canvas>
+            </div>
+            <div class="verticalLine"></div>
+            <div class="infomation">
+                <ul class="inline-list">
+                    {% for label, value in combined_data %}
+                    <li>{{ label }}: {{ value|floatformat:2 }}%</li>
+                {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 
     <div class="graph-two">
+        <div class="chart-header">Individual Job Progress</div>
         <div class="container-two">
             <canvas id="chart-two-se"></canvas>
         </div>
@@ -29,33 +31,22 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+
 const ctx = document.getElementById('chart-one');
+
+const chartData = JSON.parse('{{ chart_data|escapejs }}');
 
 new Chart(ctx, {
   type: 'doughnut',
-  data: {
-    labels: ['BackLog', 'Ready', 'In Progress', 'In Review', 'Done'],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [300, 50, 100, 60, 40],
-      backgroundColor: [
-        'rgb(4,150,255)',
-        'rgb(242,92,84)',
-        'rgb(253,150,169)',
-        'rgb(247,206,91)',
-        'rgb(76,149,108)',
-      ],
-      hoverOffset: 4
-    }]
-  },
+  data: chartData,
   options: {
     plugins: {
       legend: {
         position: 'right',
-        align: 'center',  
+        align: 'center',
         labels: {
           boxWidth: 20,
-          padding: 20      
+          padding: 20
         }
       }
     },
@@ -64,36 +55,44 @@ new Chart(ctx, {
   }
 });
 
+
 const sss = document.getElementById('chart-two-se').getContext('2d');
+
+function getGradientColor(ctx, chartArea, data) {
+    const { left, right, top, bottom } = chartArea;
+    const gradient = ctx.createLinearGradient(left, 0, right, 0);
+    gradient.addColorStop(0, 'rgb(242,92,84)');
+    gradient.addColorStop(0.5, 'rgb(247,206,91)');
+    gradient.addColorStop(1, 'rgb(76,149,108)');
+
+    return gradient;
+}
 
 new Chart(sss, {
     type: 'bar',
     data: {
-        labels: ['Arrowtown Golf Course', 'Hills Golf Course', 'Franton Golf Course'], 
+        labels: ['Arrowtown Golf Course', 'Hills Golf Course', 'Franton Golf Course'],
         datasets: [{
             label: 'Job Completion (%)',
-            data: [30, 50, 80], 
-            backgroundColor: [
-                'rgba(253,150,169, 0.7)',
-                'rgba(247,206,91, 0.7)',  
-                'rgba(76,149,108, 0.7)',  
-                'rgba(255,105,180, 0.7)' 
-            ],
-            borderColor: [
-                'rgba(253,150,169, 1)',
-                'rgba(247,206,91, 1)',
-                'rgba(76,149,108, 1)',
-                'rgba(255,105,180, 1)'
-            ],
-            borderWidth: 1
+            data: [30, 60, 90],
+            backgroundColor: function(context) {
+                const chart = context.chart;
+                const { ctx, chartArea } = chart;
+
+                if (!chartArea) {
+                    return;
+                }
+
+                return getGradientColor(ctx, chartArea, context.raw);
+            },
         }]
     },
     options: {
-        indexAxis: 'y', 
+        indexAxis: 'y',
         scales: {
             x: {
-                beginAtZero: true, 
-                max: 100,           
+                beginAtZero: true,
+                max: 100,
                 ticks: {
                     callback: function(value) {
                         return value + "%";
@@ -105,11 +104,12 @@ new Chart(sss, {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                display: false 
+                display: false
             }
         }
     }
 });
+
 
 
     </script>
