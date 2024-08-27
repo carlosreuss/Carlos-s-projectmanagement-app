@@ -25,7 +25,14 @@ def index(request):
     })
 
 def jobs(request):
-    return render(request, 'theminimanagement/jobs.html')
+    file_path = os.path.join(settings.BASE_DIR, 'theminimanagement', 'static', 'js', 'job_data.json')
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+
+    jobs = data.get('jobs', [])
+
+
+    return render(request, 'theminimanagement/jobs.html', {'jobs': jobs})
 
 def map(request):
     return render(request, 'theminimanagement/map.html')
