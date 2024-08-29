@@ -37,13 +37,14 @@ fetch("{% static 'js/job_data.json' %}")
     .then(data => {
         const locations = data.jobs.map(job => ({
             address: job.address,
-            infoPage: `${job.labels.toLowerCase().replace(/\s+/g, '')}.html`
+            id: job.id,  // Ensure ID is included
         }));
 
         locations.forEach(location => {
             getCoordinates(location.address, (lat, lon) => {
+                const jobPageUrl = "{% url 'individual_job' 0 %}".replace('0', location.id);
                 L.marker([lat, lon]).addTo(map)
-                  .bindPopup(`<b>${location.address}</b><br><a href="${location.infoPage}" target="_blank">More info</a>`)
+                  .bindPopup(`<b>${location.address}</b><br><a href="${jobPageUrl}" target="_blank">More info</a>`)
                   .openPopup();
             });
         });
