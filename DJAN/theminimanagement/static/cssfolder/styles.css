@@ -465,6 +465,8 @@ body.dark .switch::before{
 
 .home .job-adder {
     display: flex;
+    align-items: center;
+    justify-content: center; 
     height: 50px;
     margin-top: 10px;
     width: calc(100% - 35px);
@@ -477,45 +479,135 @@ body.dark .switch::before{
 
 .home .job-adder:hover {
     background: var(--sidebar-colour);
-    transform: scale(1.025);
+    transform: scale(1.005);
 }
 
 .sidebar.close ~ .home .job-adder:hover {
     background: var(--sidebar-colour);
-    transform: scale(1.025);
+    transform: scale(1.005);
 }
 
 .home .job-adder .container {
-    background: red;
-    border-radius: 24px; 
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.home .job-adder .container i.icon {
+    font-size: 30px; 
+    color: var(--text-color);
+    margin-right: 10px; 
+}
+
+/* this css is for the add_job page */
+
+.sidebar.close ~ .home .add-job-one {
+    height: 55vh;
+    margin-top: 10px;
+    column-gap: 25px;
+    width: calc(100% - 35px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+}
+
+.home .add-job-one {
+    height: 55vh;
+    margin-top: 10px;
+    column-gap: 25px;
+    width: calc(100% - 35px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+    margin-bottom: 0px;
+}
+
+.home .add-job-one .add-header {
+    font-size: 30px;
+    font-weight: 700;
     margin-left: auto;
     margin-right: auto;
-}
-
-.home .job-adder .container .text {
-    font-weight: 700;
-    font-size: 25px;
     color: var(--text-color);
-    transition: var(--tran-05);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
     text-align: center;
-    text-decoration: none;
 }
 
-.home .job-adder .container i:hover {
-    border-radius: 6px;
-    background: var(--primary-color);
+.home .add-job-one .main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 45vh;
+    margin-bottom: 0;
 }
+
+.home .add-job-one .main-content .top {
+    width: 50vw;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.home .add-job-one .main-content .middle {
+    text-align: center;
+    justify-content: space-between;
+    width: 50vw;
+}
+
+.home .add-job-one .main-content .bottom {
+    text-align: center;
+    justify-content: space-between;
+    width: 50vw;
+}
+
+.home .add-job-one .main-content .box-text {
+    font-family: 16px;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+    text-align: center;
+    padding-right: 5%;
+}
+
+.home .add-job-one .main-content input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+home .add-job-one .main-content
 
 /* this css is for the map.html */
-#map { 
-    height: 80vh;  
-    width: 90vw;
+.sidebar.close ~ .home #map { 
+    height: 95vh;  
+    width: calc(100% - 35px);
     display: block;
-    margin:auto;
+    margin: auto;
+    margin-top: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 24px;
 }
 
-
+.home #map { 
+    height: 95vh;  
+    width: calc(100% - 35px);
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 24px;
+}
 

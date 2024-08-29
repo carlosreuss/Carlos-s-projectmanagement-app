@@ -37,7 +37,7 @@ fetch("{% static 'js/job_data.json' %}")
     .then(data => {
         const locations = data.jobs.map(job => ({
             address: job.address,
-            infoPage: `${job.name.toLowerCase().replace(/\s+/g, '')}.html`
+            infoPage: `${job.labels.toLowerCase().replace(/\s+/g, '')}.html`
         }));
 
         locations.forEach(location => {

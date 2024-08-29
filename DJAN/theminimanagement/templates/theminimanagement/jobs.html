@@ -9,16 +9,15 @@
     <div class="job-list">
         <div class="profile-picture"></div>
         <div class="job-details">
-            <div class="client-name">{{ job.name }}</div>
+            <div class="client-name">{{ job.labels }}</div>
             <div class="address">{{ job.address }}</div>
         </div>
     </div>
 {% endfor %}
 <div class="job-adder">
     <div class="container">
-        <a href="{% url 'new_job' %}"> 
+        <a href="{% url 'new_job' %}">
             <i class='bx bx-plus-circle icon'></i>
-            <span class="text nav-text">Add Job</span>
         </a>
     </div>
 </div>

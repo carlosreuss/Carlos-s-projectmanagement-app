@@ -7,62 +7,30 @@
 {% endblock %}
 
 {% block body %}
-<h1>Job List</h1>
-<div id="job-list"></div>
 
-<h2>Add a New Job</h2>
-<form id="job-form">
-    <label for="name">Job Name:</label>
-    <input type="text" id="name" name="name" required>
-    <br>
-    <label for="address">Address:</label>
-    <input type="text" id="address" name="address" required>
-    <br>
-    <button type="submit">Add Job</button>
-</form>
+<div class="add-job-one">
+    <div class="add-header">Add Job</div>
+    <div class="main-content">
+        <form id="job-form" class="form-job" method="POST" action="{% url 'new_job' %}">
+            {% csrf_token %}
+            <div class="top">
+                <label class="box-text" for="name">Job Name:</label>
+                <input  placeholder="Tim's house" type="text" id="name" name="name" required>
+                <label class="box-text" for="address">Address:</label>
+                <input placeholder="2 Castle street" type="text" id="address" name="address" required>
+            </div>
+            <div class="middle">
+                <label class="box-text" for="town"> Town / City:</label>
+                <input placeholder="Queenstown" type="text" id="town" name="town" required>
+                <label class="box-text" for="post-code">Post Code:</label>
+                <input placeholder="1234" type="text" id="post-code" name="post-code" required>
+            </div>
+            <div class="bottom"> 
+                <button type="submit">Submit</button>
+            </div>
+        </form> 
+    </div>
+</div>
 
-<script>
-     let jobs = [];
-
-// Function to display the list of jobs
-function displayJobs() {
-    const jobListDiv = document.getElementById('job-list');
-    jobListDiv.innerHTML = '';
-    jobs.forEach(job => {
-        const jobItem = document.createElement('div');
-        jobItem.textContent = `Job Name: ${job.name}, Address: ${job.address}`;
-        jobListDiv.appendChild(jobItem);
-    });
-}
-
-// Function to save jobs to localStorage
-function saveJobsToLocalStorage() {
-        localStorage.setItem('jobs', JSON.stringify(jobs));
-    }
-
-    
-     // Fetch the initial JSON data
-     fetch("{% static 'js/job_data.json' %}")
-        .then(response => response.json())
-        .then(data => {
-            jobs = data.jobs;
-            displayJobs();
-        })
-        .catch(error => console.error('Error fetching the JSON data:', error));
-
-    // Handle form submission to add a new job
-    document.getElementById('job-form').addEventListener('submit', event => {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const address = document.getElementById('address').value;
-        const newJob = { name, address };
-        jobs.push(newJob);
-        saveJobsToLocalStorage();
-        displayJobs();
-        document.getElementById('job-form').reset();
-    });
-
-    window.onload = loadJobs;
-</script>
 {% endblock %}
 

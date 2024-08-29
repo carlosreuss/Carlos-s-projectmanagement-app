@@ -1,17 +1,24 @@
 {
     "jobs": [
-      {
-        "name": "Franton Golf Course",
-        "address": "Joe Oconnell Drive, Frankton, Queenstown 9371"
-      },
-      {
-        "name": "Hills Golf Course",
-        "address": "164 McDonnell Road, Arrowtown 9351"
-      },
-      {
-        "name": "Arrowtown Golf Course",
-        "address": "166 Centennial Avenue, Arrowtown 9371"
-      }
+        {
+            "labels": "Franton Golf Course",
+            "address": "Joe Oconnell Drive, Frankton, Queenstown 9371",
+            "data": "30"
+        },
+        {
+            "labels": "Hills Golf Course",
+            "address": "164 McDonnell Road, Arrowtown 9351",
+            "data": "50"
+        },
+        {
+            "labels": "Arrowtown Golf Course",
+            "address": "166 Centennial Avenue, Arrowtown 9371",
+            "data": "70"
+        },
+        {
+            "labels": "WHS",
+            "address": "47 Red Oaks Drive, Frankton, Queenstown 9300",
+            "data": "90"
+        }
     ]
-  }
-  
+}
