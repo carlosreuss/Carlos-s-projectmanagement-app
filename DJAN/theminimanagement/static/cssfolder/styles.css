@@ -348,6 +348,16 @@ body.dark .switch::before{
     width: 250px;
 }
 
+.home .graph-one .infomation .inline-list {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-03);
+}
+
+.home .graph-one .infomation .percent {
+    color: var(--toggle-color);
+}
 
 .sidebar.close ~ .home .graph-two {
     height: 55vh;
@@ -501,6 +511,10 @@ body.dark .switch::before{
     margin-right: 10px; 
 }
 
+.home .job-details a {
+    text-decoration: none;
+}
+
 /* this css is for the add_job page */
 
 .sidebar.close ~ .home .add-job-one {
@@ -568,7 +582,7 @@ body.dark .switch::before{
 }
 
 .home .add-job-one .main-content .box-text {
-    font-family: 16px;
+    font-size: 16px;
     font-weight: 500;
     margin-left: auto;
     margin-right: auto;
@@ -587,8 +601,6 @@ body.dark .switch::before{
     margin-bottom: 15px;
     font-size: 16px;
 }
-
-home .add-job-one .main-content
 
 /* this css is for the map.html */
 .sidebar.close ~ .home #map { 
@@ -611,3 +623,62 @@ home .add-job-one .main-content
     border-radius: 24px;
 }
 
+/* this css is for the individual job page */
+
+.sidebar.close ~ .home .indi-job {
+    height: 55vh;
+    margin-top: 10px;
+    column-gap: 25px;
+    width: calc(100% - 35px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+}
+
+.home .indi-job{
+    height: 55vh;
+    margin-top: 10px;
+    column-gap: 25px;
+    width: calc(100% - 35px);
+    background: var(--sidebar-colour);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 24px;
+    margin-left: 20px;
+    transition: var(--tran-05);
+    margin-bottom: 0px;
+}
+
+.home .indi-job .header-job-text {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+    text-align: center;
+}
+
+.home .indi-job .text-job {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    white-space: nowrap;
+    opacity: 1;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.home .indi-job .job-infomation {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--tran-03);
+    width: auto;
+    opacity: 1;
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 30px;
+}

@@ -15,7 +15,7 @@
             <div class="infomation">
                 <ul class="inline-list">
                     {% for label, value in combined_data %}
-                    <li>{{ label }}: {{ value|floatformat:2 }}%</li>
+                    <li>{{ label }}: <span class="percent">{{ value|floatformat:2 }}%</span></li>
                 {% endfor %}
                 </ul>
             </div>

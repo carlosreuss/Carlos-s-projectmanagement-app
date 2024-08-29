@@ -1,0 +1,18 @@
+{% extends "theminimanagement/layout.html" %}
+
+{% block title %}
+    Job details
+{% endblock %}
+
+{% block body %}
+<div class="indi-job">
+    {% for j in job %}
+    <div class="header-job-text">{{ j.labels }}</div>
+    <div class="box">
+        <div class="text-job"><strong>Address:</strong> {{ j.address }}</div>
+    {% endfor %}
+    <div class="job-infomation"><strong>Job Info:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum aliquid facere adipisci? Aperiam, odio nostrum! Quae, assumenda animi illum ad reprehenderit rem corrupti laudantium hic omnis provident harum tenetur nemo, reiciendis praesentium dignissimos? Molestiae ducimus adipisci dolores labore, sequi vel tempore hic amet voluptatum quaerat fugiat aspernatur voluptatibus necessitatibus ratione esse numquam doloremque ad natus sunt a saepe iste rerum illum laborum! Illum asperiores molestiae, perspiciatis voluptas, fugiat aliquid tempore maxime numquam labore ex iure aliquam amet doloribus molestias ullam ab? Quis totam fuga beatae pariatur repudiandae magni dolores, accusantium ipsa similique suscipit doloremque quo aut hic rerum esse repellendus.
+    </div>
+    </div>
+</div>
+{% endblock %}

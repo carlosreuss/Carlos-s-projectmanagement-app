@@ -9,8 +9,10 @@
     <div class="job-list">
         <div class="profile-picture"></div>
         <div class="job-details">
-            <div class="client-name">{{ job.labels }}</div>
-            <div class="address">{{ job.address }}</div>
+            <a href="{% url 'individual_job' job.id %}">
+                <div class="client-name">{{ job.labels }}</div>
+                <div class="address">{{ job.address }}</div>
+            </a>
         </div>
     </div>
 {% endfor %}
