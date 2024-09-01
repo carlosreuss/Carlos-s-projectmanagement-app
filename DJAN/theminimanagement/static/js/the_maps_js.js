@@ -1,3 +1,5 @@
+// this is not used anny more but there for back up if the map i accendeny delete the map
+
 var map = L.map('map').setView([-44.9612115, 168.5256356], 10);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

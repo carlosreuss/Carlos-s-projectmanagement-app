@@ -10,7 +10,7 @@
     <div id="map"></div>
 </main>
 <script>
-
+// this code here is for the map and was a temple from the leafet js and openstreet view
 var map = L.map('map').setView([-44.9612115, 168.5256356], 10);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -37,7 +37,7 @@ fetch("{% static 'js/job_data.json' %}")
     .then(data => {
         const locations = data.jobs.map(job => ({
             address: job.address,
-            id: job.id,  // Ensure ID is included
+            id: job.id,
         }));
 
         locations.forEach(location => {
