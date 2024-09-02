@@ -23,12 +23,6 @@
             "labels": "WHS",
             "address": "47 Red Oaks Drive, Frankton, Queenstown 9300",
             "data": "90"
-        },
-        {
-            "id": 5,
-            "labels": "carlos",
-            "address": "20 bracken street, arrowtown 9302",
-            "data": "0"
         }
     ]
 }
