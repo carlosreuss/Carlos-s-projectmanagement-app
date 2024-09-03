@@ -13,7 +13,7 @@ def index(request):
     total_sum = sum(chart_data['datasets'][0]['data']) # here I am getting to total/sum of the data to later create the percetage
 
     combined_data = []
-    for i in range(len(chart_data['labels'])):
+    for i in range(len(chart_data['labels'])): # for loop for gettign the data for eeach label
         value = chart_data['datasets'][0]['data'][i]
         percentage = (value / total_sum) * 100
 
@@ -23,10 +23,10 @@ def index(request):
     with open(file_path_two, 'r') as file:
         chart_data_two = json.load(file)
 
-    job_names = []
-    job_pro = []
+    job_names = [] # creating lists for job names
+    job_pro = [] # creating lists job progress 
 
-    for i in range(len(chart_data_two['jobs'])):
+    for i in range(len(chart_data_two['jobs'])): #looping through the data which has been called from the the json file
         job_name = chart_data_two['jobs'][i]['labels']
         job_progress = chart_data_two['jobs'][i]['data']
         job_names.append(job_name)
@@ -38,7 +38,7 @@ def index(request):
         'job_pro': job_pro,
         'combined_data': combined_data,
         'chart_data': json.dumps(chart_data)
-    })
+    })# retuning all of the varable to the html page corosponding to the page dashborad
 
 def jobs(request):
     #here I am loading the data from the josn file: job_data.json
@@ -46,21 +46,21 @@ def jobs(request):
     with open(file_path, 'r') as file:
         data = json.load(file)
 
-    jobs = data.get('jobs', [])
+    jobs = data.get('jobs', []) # setting the varable to a lsit of each individaul job
 
-    return render(request, 'theminimanagement/jobs.html', {'jobs': jobs})
+    return render(request, 'theminimanagement/jobs.html', {'jobs': jobs}) 
 
 def map(request):
-    return render(request, 'theminimanagement/map.html')
+    return render(request, 'theminimanagement/map.html') # reuten the request of the map, this is needed for the map page
 
 def new_job(request):
-    if request.method == 'POST':
+    if request.method == 'POST': # if the meothed is post it will allow acessing the data reiced and set the varbles to the corosponding darta points
         job_name = request.POST.get('name')
         job_street = request.POST.get('address')
         job_town = request.POST.get('town')
         job_post_code = request.POST.get('post-code')
 
-        job_address = job_street + "," + " " + job_town + " " + job_post_code
+        job_address = job_street + "," + " " + job_town + " " + job_post_code # settring the job adress sting
 
         
 
@@ -80,7 +80,7 @@ def new_job(request):
         return redirect('jobs')
 
 
-    return render(request, 'theminimanagement/new_job.html')
+    return render(request, 'theminimanagement/new_job.html')# retuning all of the varable to the html page corosponding to the page individual jobs page
 
 def individual_job(request, id):
     #here I am loading the data from the josn file: job_data.json
@@ -90,7 +90,7 @@ def individual_job(request, id):
 
         job_infomation = []
 
-        for i in range(len(all_job_info['jobs'])):
+        for i in range(len(all_job_info['jobs'])): # looping through the data to set in a list per job
             job_data = all_job_info['jobs'][i]
             job_id = all_job_info['jobs'][i]['id']
             if id == job_id:
