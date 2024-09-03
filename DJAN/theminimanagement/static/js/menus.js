@@ -1,4 +1,4 @@
-// crating vapables for each consent i made in css
+// creating varrables for each consent i made in css
 const body = document.querySelector("body"),
     sidebar = body.querySelector(".sidebar"),
     toggle = body.querySelector(".toggle"),
